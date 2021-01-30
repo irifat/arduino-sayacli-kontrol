@@ -42,7 +42,6 @@ void setup() {
   dEncoder.setLongClickStop(encoderLongPressStop);
   dSensor.setClick(sensorClick);
   dSensor.setLongClickStop(sensorLongPressStop);
-
   pinMode (outputA, INPUT);
   pinMode (outputB, INPUT);
   pinMode (sensorPin, INPUT_PULLUP);
@@ -56,7 +55,6 @@ void setup() {
   ekranaYaz(durum, 0);
   ekranaYaz(durum, 1);
 }
-
 void loop() {
   dEncoder.isClick();
   dSensor.isClick();
@@ -95,7 +93,6 @@ void loop() {
       break;
   }
 }
-
 void encoderOku() {
   aState = digitalRead(outputA); // Reads the "current" state of the outputA
   // If the previous and the current state of the outputA are different, that means a Pulse has occured
@@ -204,7 +201,6 @@ void ekranaYaz(char ekranTipi, int satirNo) {
     }
   }
 }
-
 void encoderClick() {
   Serial.print( "encoder click - durum:");
   Serial.print(durum);
@@ -228,9 +224,7 @@ void encoderClick() {
       ekranaYaz(durum, 1);
       break;
   }
-
 }
-
 void encoderLongPressStart() {
   if (durum == 'A') {
     if (ekranTazele == 0) {
@@ -248,7 +242,6 @@ void encoderLongPressStart() {
     ekranTazele = 1;
   }
 }
-
 void encoderLongPressStop() {
   if (durum == 'A') {
     durum = 'B';
@@ -264,7 +257,6 @@ void encoderLongPressStop() {
     ekranaYaz(durum, 1);
   }
 }
-
 void encoderDoubleClick() {
   if (durum == 'A' && sayacSifirla == 0) {
     durum = 'C';
@@ -276,10 +268,8 @@ void encoderDoubleClick() {
     durum = 'A';
     ekranaYaz(durum,0);
     ekranaYaz(durum,1);
-    
   }
 }
-
 void sensorClick() {
   if (durum == 'B') {
     sayac++;
